@@ -16,9 +16,9 @@
   <main class="panel">
     <div class="tabs" role="tablist" aria-label="후원 주기"><button class="tab active" data-kind="월 정기후원" role="tab" aria-selected="true">월 정기후원</button><button class="tab" data-kind="1회 후원" role="tab" aria-selected="false">1회 후원</button></div>
     <div class="step">후원 금액을 선택해 주세요</div>
-    <div class="amounts"><button class="amount active" data-amount="10,000원">1만원</button><button class="amount" data-amount="20,000원">2만원</button><button class="amount" data-amount="30,000원">3만원</button><button class="amount" data-amount="50,000원">5만원</button><button class="amount" data-amount="100,000원">10만원</button><button class="amount" data-amount="직접 입력">기타</button></div>
+    <div class="amounts"><button class="amount active" data-amount="5,000원">5,000원</button><button class="amount" data-amount="10,000원">1만원</button><button class="amount" data-amount="20,000원">2만원</button><button class="amount" data-amount="30,000원">3만원</button><button class="amount" data-amount="50,000원">5만원</button><button class="amount" data-amount="직접 입력">직접입력</button></div>
     <input class="custom" id="custom" type="number" min="1000" step="1000" placeholder="후원 금액을 원 단위로 입력해 주세요" aria-label="기타 후원 금액">
-    <div class="summary"><span>선택한 후원</span><strong id="summary">월 정기후원 · 10,000원</strong></div>
+    <div class="summary"><span>선택한 후원</span><strong id="summary">월 정기후원 · 5,000원</strong></div>
     <button class="continue" id="continue">후원 방법 확인하기</button>
     <div class="notice" id="notice" role="status">현재는 후원 안내 견본 단계입니다. 후원 계좌와 온라인 결제 방법이 확정되면 이곳에서 실제 후원을 신청할 수 있습니다.</div>
   </main>
@@ -26,7 +26,7 @@
   <div class="legal"><strong>후원 전 확인해 주세요</strong><br>후원은 자발적으로 참여하며 언제든 중단할 수 있습니다. 현재 좋은 삶은 세액공제용 기부금영수증을 발급하지 않습니다. 실제 후원 접수가 시작되면 후원 내역과 사용 내역을 성실히 기록·관리하겠습니다.</div>
   <footer class="site-footer"><div class="wrap footer-inner"><div class="footer-brand">좋은 삶</div><p class="footer-line">깊이 생각하고 다르게 살아가는 사람들의 이야기</p><p class="publisher">발행 : <a href="about.html">좋은삶미디어</a></p><nav class="footer-nav" aria-label="하단 메뉴"><a href="index.html#education">교육</a><a href="index.html#culture">문화</a><a href="index.html#health">건강</a><a href="index.html#climate">기후/환경</a><a href="index.html#community">공동체</a><a href="index.html#people">인물/컬럼</a></nav></div></footer>
   <script>
-    const tabs=[...document.querySelectorAll('.tab')], amounts=[...document.querySelectorAll('.amount')], summary=document.getElementById('summary'), custom=document.getElementById('custom'), notice=document.getElementById('notice');let kind='월 정기후원', amount='10,000원';
+    const tabs=[...document.querySelectorAll('.tab')], amounts=[...document.querySelectorAll('.amount')], summary=document.getElementById('summary'), custom=document.getElementById('custom'), notice=document.getElementById('notice');let kind='월 정기후원', amount='5,000원';
     function update(){summary.textContent=kind+' · '+amount}
     tabs.forEach(b=>b.addEventListener('click',()=>{tabs.forEach(x=>{x.classList.remove('active');x.setAttribute('aria-selected','false')});b.classList.add('active');b.setAttribute('aria-selected','true');kind=b.dataset.kind;update()}));
     amounts.forEach(b=>b.addEventListener('click',()=>{amounts.forEach(x=>x.classList.remove('active'));b.classList.add('active');amount=b.dataset.amount;custom.style.display=amount==='직접 입력'?'block':'none';if(amount==='직접 입력')custom.focus();update()}));
